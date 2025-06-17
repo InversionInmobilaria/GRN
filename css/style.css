@@ -1460,14 +1460,26 @@ font-family: 'Didot', serif;
   justify-content: center; 
 }
 .large-image-container {
-  
-  
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  overflow: hidden;
   height: 100%;
   margin-top: -2%;
-  
+  background: white;
 }
 
+.large-image {
+  width: auto;
+  height: 100%;
+  object-fit: cover;
+  max-width: 100%;
+  clip-path: inset(2% 0 2% 0);
 
+
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, white 20%, white 100%);
+  mask-image: linear-gradient(to right, transparent 0%, white 20%, white 100%);
+}
 
 
 
