@@ -1459,21 +1459,18 @@ font-family: 'Didot', serif;
   flex-direction: column;
   justify-content: center; 
 }
-.large-image-container {
-  display: flex;
-  justify-content: flex-end;
+
+
+.large-image-container{
+  
   align-items: center;
   overflow: hidden;
-  height: 100%;
-  margin-top: -2%;
-  background: white;
-}
-
-.large-image {
   width: auto;
   height: 100%;
   object-fit: cover;
   max-width: 100%;
+  margin-top: -4%;
+  background: white;
   clip-path: inset(2% 0 2% 0);
 
 
