@@ -1460,13 +1460,11 @@ font-family: 'Didot', serif;
   justify-content: center; 
 }
 .large-image-container {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  overflow: hidden;
+  
+  
   height: 100%;
   margin-top: -2%;
-  background: white;
+  
 }
 
 
