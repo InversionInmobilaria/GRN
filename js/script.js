@@ -1,4 +1,5 @@
 
+
 const container = document.querySelector('.cuadros-container');
 const rows = 8;
 const cols = 16;
@@ -8,10 +9,47 @@ for (let y = 0; y < rows; y++) {
     const img = document.createElement('img');
     img.src = `../grid/tile_${y}_${x}.jpg`;
     img.className = 'cuadro';
+    img.style.left = `${(x * 100) / cols}%`;
+    img.style.top = `${(y * 100) / rows}%`;
     img.style.animationDelay = `${(x + y) * 0.03}s`; 
     container.appendChild(img);
   }
 }
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const teamMembers = document.querySelectorAll('.team-member');
+    
+    // Verifica si el elemento está parcialmente visible en el viewport
+    function isElementInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+        return (
+            rect.top < windowHeight * 0.85 &&  // ya con un 15% visible es suficiente
+            rect.bottom > 0
+        );
+    }
+
+    // Animar los elementos cuando entren en vista
+    function animateOnScroll() {
+        teamMembers.forEach((member, index) => {
+            if (isElementInViewport(member) && !member.classList.contains('animate-fall')) {
+                setTimeout(() => {
+                    member.classList.add('animate-fall');
+                }, index * 200);
+            }
+        });
+    }
+
+    // Ejecutar al cargar la página
+    setTimeout(animateOnScroll, 500);
+
+    // Ejecutar al hacer scroll
+    window.addEventListener('scroll', animateOnScroll);
+});
+
 
 
 
@@ -478,48 +516,7 @@ if (isMobile) {
   document.getElementById("bloque-movil").style.display = "block";
 }
 
-
-
-
-
-
-
-
-
-// Animación de caída para los miembros del equipo
-        document.addEventListener('DOMContentLoaded', function() {
-            const teamMembers = document.querySelectorAll('.team-member');
-            
-            // Función para verificar si un elemento está visible en el viewport
-            function isElementInViewport(el) {
-                const rect = el.getBoundingClientRect();
-                return (
-                    rect.top >= 0 &&
-                    rect.left >= 0 &&
-                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-                );
-            }
-
-            // Función para animar los elementos cuando entran en vista
-            function animateOnScroll() {
-                teamMembers.forEach((member, index) => {
-                    if (isElementInViewport(member) && !member.classList.contains('animate-fall')) {
-                        setTimeout(() => {
-                            member.classList.add('animate-fall');
-                        }, index * 200);
-                    }
-                });
-            }
-
-            // Ejecutar al cargar la página
-            setTimeout(animateOnScroll, 500);
-
-            // Ejecutar al hacer scroll
-            window.addEventListener('scroll', animateOnScroll);
-        });
-
-          const select = document.getElementById('selectDepartamento');
+  const select = document.getElementById('selectDepartamento');
   const porcentajeInput = document.getElementById('porcentaje');
   const porcentajeValor = document.getElementById('porcentajeValor');
   const engancheTexto = document.getElementById('engancheTexto');

@@ -172,17 +172,26 @@ header.abajo ul li a:hover {
   grid-template-rows: repeat(8, 1fr);
   width: 100%;
   height: 100%;
+  gap: 0;               /* Asegura que no haya espacio entre celdas */
+  line-height: 0;       /* Evita espacio vertical adicional */
+  font-size: 0;         /* Evita espacio horizontal adicional */
+  image-rendering: pixelated;
+   /* Mejora precisión del render */
 }
 
 .cuadro {
-  
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;       /* Elimina espacio tipo inline */
+  border: none;         /* Asegura que no haya bordes */
+  padding: 0;
+  margin: 0;
   animation: cuadroReveal 0.5s ease forwards;
   opacity: 0;
   transform: scale(0.8);
 }
+
 
 @keyframes cuadroReveal {
   to {
@@ -1564,19 +1573,19 @@ font-family: 'Didot', serif;
   position: relative;
   margin-bottom: 25px;
   overflow: hidden;
-  width: 40%px;   /* ancho fijo */
-  height: 70%;  /* alto fijo */
+  width: 40%px;   /* corregido aquí */
+  height: 70%;
   margin-left: auto;
   margin-right: auto;
-
 }
+
 
 .member-image {
   width: 100%;
   height: 100%;
   object-fit: cover;  /* importante para que la imagen se ajuste y recorte bien */
   transition: transform 0.3s ease;
-  display: block;
+  
 }
 
 
